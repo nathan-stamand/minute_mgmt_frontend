@@ -3,7 +3,7 @@ import Task from "../components/Task";
 
 function CompletedTasks(props) {
   return (
-    <div id="completed tasks"></div>
+    <div id="completed-tasks"></div>
   )
 };
 
