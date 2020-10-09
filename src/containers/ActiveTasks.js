@@ -3,22 +3,15 @@ import Task from "../components/Task";
 import { v4 as uuid } from 'uuid';
 
 function ActiveTasks(props) {
-  function createTask(task, subs) {
-    return <Task key={uuid()} attr={task} subTasks={subs} />
-  }
-
-  function filterSubs(task) {
-    if (props.subTasks) {
-      return props.subTasks.filter(sub => sub.task_id === task.id)
-    }
+  function createTask(task) {
+    return <Task key={uuid()} attr={task} />
   }
 
   function generateTasks() {
     let taskList = []
     if (props.tasks ) {
       for (const task of props.tasks) {
-        let subs = filterSubs(task);
-        taskList.push(createTask(task, subs))
+        taskList.push(createTask(task))
       }
     }
     return taskList;
@@ -26,6 +19,7 @@ function ActiveTasks(props) {
 
   return(
     <div id="active-tasks">
+      <h3>Active Tasks:</h3>
       {generateTasks()}
     </div>
   )
